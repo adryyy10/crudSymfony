@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listado películas{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Sinopsis</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for film in films %}
+                        <tr class="table-row"data-href="{{ path('film_show', {'id': film.id}) }}">
+                            <th scope="row">{{film.id}}</th>
+                            <td>{{film.title}}</td>
+                            <td>{{film.sinopsis}}</td>
+                            <td><button class="btn btn-danger"><a href="{{ path('film_delete', {'id': film.id}) }}">Borrar</a></button></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <button class="btn btn-primary"><a href="{{ path('film_insert')}}" style="color: white; text-decoration: none;">Añadir nueva película</a></button>
+        </div>
+    </div>
+
+
+
+{% endblock %}

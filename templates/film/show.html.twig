@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit film: {{ film.title }}!{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <form action="{{ path('update_film', {'id': film.id}) }}" method="POST">
+                <div class="form-group">
+                    <label for="title1">Title</label>
+                    <input type="text" class="form-control" id="title1" name="title1" aria-describedby="title" value="{{film.title}}" placeholder="Enter title">
+                </div>
+                <div class="form-group">
+                    <label for="sinopsis1">Sinopsis</label>
+                    <input type="text" class="form-control" id="sinopsis1" name="sinopsis1" aria-describedby="sinopsis" value="{{film.sinopsis}}" placeholder="Enter sinopsis">
+                </div>
+                <button type="submit" class="btn btn-primary">Edit film</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
